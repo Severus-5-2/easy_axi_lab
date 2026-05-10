@@ -1,20 +1,24 @@
 # Easy AXI Lab — 实验指导
 
-两个实验：**Sync FIFO** 和 **AXI4-Lite Slave**。目标是掌握数字设计中模块间通信的核心机制 —— valid-ready 握手，以及 git 协作流程。
+两个实验：**Sync FIFO** 和 **AXI4-Lite Slave**。目标是掌握数字设计中模块间通信的核心机制 —— valid-ready 握手，以及 项目开发中的git 协作流程。
 
 环境搭建和仿真命令见 [README.md](README.md)。
 
-仓库在 GitHub 和 Gitee 各有一份，内容相同。WSL 里建议用 Gitee。
+仓库在 github 和 gitee 各有一份，内容相同。如果遇到github的网络问题，可以换gitee。
+
+仓库地址（github)：https://github.com/eugeci/easy_axi_lab
+
+仓库地址（gitee)：https://gitee.com/eugeci/easy_axi_lab
 
 ## 获取仓库
 
-先 fork 本仓库，然后：
+先 fork 本仓库，[如何fork(github)](https://blog.csdn.net/xc_zhou/article/details/87984242),[如何fork(gitee)](https://www.cnblogs.com/pingguomang/p/18783891)然后：
 
 ```bash
-# GitHub
+# github
 git clone https://github.com/<你的账号>/easy_axi_lab.git
 
-# Gitee（WSL 推荐）
+# gitee
 git clone https://gitee.com/<你的账号>/easy_axi_lab.git
 
 cd easy_axi_lab
@@ -40,7 +44,7 @@ tb/ 下的 代码已经和rtl的顶层模块对接好了，默认情况下不需
 
 ## Valid-Ready 握手
 
-这是整个实验的核心。在真实的数字系统中，两个模块之间不能假设对方永远就绪——发送方可能数据还没准备好，接收方可能还在处理上一笔数据。如果不管对方状态直接发，数据就丢了。valid-ready 握手解决的就是这个问题：双方各用一根信号线通知对方自己的状态，只在两边都准备好的那一拍才传数据。学会这套机制之后，你会发现很多模块之间的通信都是这样设计的，你也可以在自己的设计中使用它。
+这是整个实验的核心。在真实的数字系统中，两个模块之间不能假设对方永远就绪——发送方可能数据还没准备好，接收方可能还在处理上一笔数据。如果不管对方状态直接发，数据就丢了。valid-ready 握手解决了这个问题：双方各用一根信号线通知对方自己的状态，只在两边都准备好的那一拍才传数据。学会这套机制之后，你会发现很多模块之间的通信都是这样设计的，你也可以在自己的设计中使用它。
 
 所有模块之间的数据传输都通过 valid-ready 握手完成：
 
@@ -133,4 +137,4 @@ git push origin feature/my-impl
 ## 参考资料
 
 - AMBA AXI协议手册
-- "ready before valid deadlock"
+- [AXI协议讲解](https://www.bilibili.com/video/BV1mD4y1p7UK/?share_source=copy_web&vd_source=6af02bd62e87634024ca82f448bec047)

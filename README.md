@@ -2,9 +2,7 @@
 
 实验介绍、获取仓库、提交流程见 [docs/LAB_GUIDE.md](docs/LAB_GUIDE.md)。
 
-仓库在 GitHub 和 Gitee 各有一份，内容相同。WSL 里建议用 Gitee。
-
-## 安装工具
+安装工具
 
 ```bash
 sudo apt-get install iverilog gtkwave make git
@@ -42,14 +40,14 @@ cd labs/axi_lite/sim && make test TC=4
 easy_axi_lab/
 ├── labs/
 │   ├── fifo/
-│   │   ├── rtl/sync_fifo.v        # 改这里
-│   │   ├── tb/                    # 不改
+│   │   ├── rtl/sync_fifo.v  
+│   │   ├── tb/  
 │   │   └── sim/Makefile
 │   └── axi_lite/
-│       ├── rtl/axi_lite_slave.v   # 改这里
-│       ├── tb/                    # 不改
+│       ├── rtl/axi_lite_slave.v   
+│       ├── tb/              
 │       └── sim/Makefile
-├── sim/Makefile                   # 顶层调度
-├── docs/LAB_GUIDE.md              # 实验指导
+├── sim/Makefile               
+├── docs/LAB_GUIDE.md            
 └── README.md
 ```
